@@ -1,0 +1,253 @@
+// font-family: 'Baloo 2', cursive;
+// font-family: 'Poppins', sans-serif;
+
+$light-maroon:#e11b1b;
+$light-grey:#7e878c;
+$dark-grey:#3f3f3f;
+$white:#ffffff;
+$font-text:'Poppins', sans-serif;
+$font-heading:'Baloo 2', cursive;
+$font-size:16px;
+
+@mixin flexing($fd,$jc,$ai) {
+    display: flex;
+    flex-direction: $fd;
+    align-items: $ai;
+    justify-content: $jc;
+}
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-text;
+    
+}
+
+main{
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%,-50%);
+    width:100%;
+    overflow: hidden;
+
+    header{
+        background-color: $light-maroon;
+        color:$white;
+        padding:7px 20px;
+        @include flexing(row, space-between, center);
+
+
+        .logo{
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            border-radius: 100%;
+            background-color: white;
+            padding: 9px 0px;
+        }
+        .title{
+            @include flexing(row, flex-start, center);
+            h1{
+                font-family: $font-heading;
+                font-size: 40px;
+                margin-left: 10px;
+            }
+        }
+        button{
+            background-color: transparent;
+            border:none;
+            outline: none;
+            color:white;
+            height: 40px;
+            display:none;
+        }
+        button-click{
+            border:2px solid white;
+        }
+    }
+
+    .container{
+        background-color: $light-grey;
+        padding:20px;
+        @include flexing(row,flex-start,stretch);
+
+        .user-window{
+            width:350px;
+            color:$white;
+            background-color: $dark-grey;
+            padding:15px 20px;
+            border-radius: 10px;
+            margin-right: 20px;
+
+            .users-head{
+                @include flexing(row, space-between, center);
+                margin-bottom: 15px;
+                h4{
+                    background-color: $light-grey;
+                    padding:0 8px;
+                    border-radius: 100%;
+                }
+            }
+            .users-list p{
+                font-size: $font-size;
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+        }
+        .chat-window{
+            background-color: $dark-grey;
+            width: 100%;
+            border-radius: 10px;
+            color: $white;
+
+            .chats{
+                min-height: 65vh;
+                max-height: 65vh;
+                padding: 20px;
+                overflow-y: auto;
+
+                .user-joined{
+                    background-color: $light-grey;
+                    color: $white;
+                    border-radius: 50px;
+                    font-size: 0.9rem;
+                    width: max-content;
+                    padding: 7px 20px;
+                    margin:0 auto;
+                    margin-bottom: 15px;
+                }
+                .message{
+                    color: $dark-grey;
+                    background-color: $white;
+                    padding: 5px 10px;
+                    max-width:400px;
+                    margin-bottom: 15px;
+                    border-radius: 10px 50px 50px 10px;
+                    p{
+                        font-size: $font-size;
+                    }
+                }
+                .outgoing{
+                    margin-left: auto;
+                    color:$white;
+                    background-color: $light-maroon;
+                    border-radius: 50px 10px 10px 50px;
+                    padding: 5px 10px;
+                    text-align: right;
+                }
+            }
+            .user-input{
+                @include flexing(row, space-between, stretch);
+                padding:20px;
+                input{
+                    font-size: $font-size;
+                    background-color: $white;
+                    padding: 10px 10px;
+                    outline: none;
+                    border: none;
+                    width:100%;
+                    border-radius: 10px 0px 0px 10px;
+                }
+                button{
+                    background-color: $light-maroon;
+                    color:$white;
+                    font-size: $font-size;
+                    font-weight: 600;
+                    outline: none;
+                    border: none;
+                    padding: 0 10px;
+                    border-radius: 0px 10px 10px 0px;
+                }
+            }
+        }
+    }
+    footer{
+        background-color: black;
+        color:$white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding:20px;
+        line-height: 2.5;
+
+        .social-links{
+            display: flex;
+            flex-direction: row;
+            a{
+
+                color:white;
+                text-decoration: none;
+                padding: 0 7px;
+                transition: 0.3s;
+            }
+            a:hover{
+                color:$light-maroon;
+            }
+        }
+    }
+
+}
+@media screen and(max-width:900px){
+    main{
+        width:100%;
+        header{
+            button{
+                display: block;
+            }
+        }
+        .container{
+            position: relative;
+            .user-window{
+                position:absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                border-radius: 0px 0px 10px 10px;
+                height: max-content;
+                z-index: 10;
+                box-shadow: 0 15px 20px -20px black;
+                padding-bottom: 0px;
+                display: none;
+            }
+            .chat-window{
+                .chats{
+                    .message{
+                        max-width:300px;
+                    }
+                }
+            }
+    }
+    }
+
+}
+@media only screen and (max-width: 600px){
+    main .container .chat-window .chats {
+        min-height: 75vh;
+        padding: 20px;
+        overflow-y: scroll;
+    }
+}
+@media only screen and (min-height: 1000px){
+    main .container .chat-window .chats {
+        min-height: 77vh;
+        padding: 20px;
+        overflow-y: auto;
+    }
+}
+@media only screen and (min-height: 1180px){
+    main .container .chat-window .chats {
+        min-height: 79vh;
+        padding: 20px;
+        overflow-y: auto;
+    }
+}
+@media only screen and (min-width: 1200px){
+    main .container .chat-window .chats {
+        min-height: 70vh;
+        padding: 20px;
+        overflow-y: auto;
+    }
+}

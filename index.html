@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/index.css">
+    <title>Attii - Let The Chat Begin!</title>  
+</head>
+<body>
+    <main>
+        <header>
+            <div class="title">
+                <div class="logo">
+                    <img src="icons/chat-conversation-svgrepo-com.svg" width="35px" alt="logo">
+                </div>
+                
+                <h1>Attii</h1>
+            </div>
+            <button type="button">
+                <img src="icons/hamburger.svg" width="40px" onclick="showpeople()">
+            </button>
+        </header>
+        <div class="container">
+            <div class="user-window">
+                <div class="users-head">
+                    <h3>People</h3>
+                    <h4 class="users-count">0</h4>
+                </div>
+                <div class="users-list">
+
+                </div>
+            </div>
+            <div class="chat-window">
+                <div class="chats">
+                    
+                </div>
+                <div class="user-input">
+                    <input type="text" name="message-box" id="user_msg" placeholder="Type your message...." value="">
+                    <button id="user_send" type="button"><h4>SEND</h4></button>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <h5>Copyrights &copy Sameer Ahamed</h5>
+            <h5>Follow me on</h5>
+            <div class="social-links">
+                <a href="https://www.instagram.com/sameer_crazy_001" target="_blank" class="insta"><h5>Instagram</h5></a>
+                <a href="https://www.telegram.me/sameer_crazy" target="_blank"><h5>Telegram</h5></a>
+                <a href="https://www.github.com/sameer-crazy" target="_blank"><h5>Github</h5></a>
+            </div>
+        </footer>
+    </main>
+    <script>
+        let userwindow = document.querySelector(".user-window");
+        function showpeople(){
+            if(userwindow.style.display=="block"){
+                userwindow.style.display="none";
+            }
+            else{
+                userwindow.style.display="block"
+            }
+        }
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/client.js"></script>
+</body>
+</html>
