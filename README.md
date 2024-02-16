@@ -36,6 +36,6 @@ To run the project locally, follow these steps:
 4. Start the server using `node server.js`.
 5. Access the application in your browser at `http://localhost:3000`.
 
-## Contributing
+## Want to Contribute?
 
 Contributions are welcome! If you'd like to contribute to Attii Chat, please fork the repository and submit a pull request.
